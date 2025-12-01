@@ -21,66 +21,7 @@
 &lt;li>REST API design, authentication, ORM modeling.&lt;/li>
 &lt;li>Dockerization, one-command deploy scripts.&lt;/li>
 &lt;li>Static site generation and CI/CD for docs.&lt;/li>
-&lt;/ul></description></item><item><title>Project 1 – PHP Dealership API</title><link>https://tofuszn.github.io/ASE_Project2/docs/project1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://tofuszn.github.io/ASE_Project2/docs/project1/</guid><description>&lt;h1 id="ase230-project-1--dealership-rest-api">ASE230 Project 1 – Dealership REST API&lt;/h1>
-&lt;h2 id="overview">Overview&lt;/h2>
-&lt;ul>
-&lt;li>PHP / MySQL / NGINX deployment&lt;/li>
-&lt;li>Plain PHP 8.2 + PDO (no framework)&lt;/li>
-&lt;li>JSON requests/responses; bearer token for write operations&lt;/li>
-&lt;/ul>
-&lt;h2 id="presentation-roadmap">Presentation Roadmap&lt;/h2>
-&lt;ul>
-&lt;li>Project objective &amp;amp; architecture&lt;/li>
-&lt;li>Authentication design&lt;/li>
-&lt;li>API catalogue with request/response samples&lt;/li>
-&lt;li>Testing strategy and evidence&lt;/li>
-&lt;li>Deployment to NGINX&lt;/li>
-&lt;li>Operational refinements &amp;amp; next steps&lt;/li>
-&lt;/ul>
-&lt;h2 id="technology-stack">Technology Stack&lt;/h2>
-&lt;ul>
-&lt;li>PHP 8.2 with PDO (no framework dependencies)&lt;/li>
-&lt;li>MySQL 8 (Homebrew-managed service)&lt;/li>
-&lt;li>JSON payloads for all requests/responses&lt;/li>
-&lt;li>Bearer token authorization for state-changing endpoints&lt;/li>
-&lt;li>Tooling: &lt;code>curl.sh&lt;/code>, &lt;code>tests.html&lt;/code>, &lt;code>schema.sql&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;h2 id="api-catalogue">API Catalogue&lt;/h2>
-&lt;ol>
-&lt;li>&lt;code>POST /api.php?resource=auth&lt;/code> — Authenticate &amp;amp; issue token&lt;/li>
-&lt;li>&lt;code>GET /api.php?resource=cars&lt;/code> — Retrieve inventory&lt;/li>
-&lt;li>&lt;code>GET /api.php?resource=cars&amp;amp;id={id}&lt;/code> — Retrieve specific vehicle&lt;/li>
-&lt;li>&lt;code>POST /api.php?resource=cars&lt;/code> — Create vehicle &lt;em>(token required)&lt;/em>&lt;/li>
-&lt;li>&lt;code>PUT /api.php?resource=cars&amp;amp;id={id}&lt;/code> — Update vehicle &lt;em>(token required)&lt;/em>&lt;/li>
-&lt;li>&lt;code>DELETE /api.php?resource=cars&amp;amp;id={id}&lt;/code> — Remove vehicle &lt;em>(token required)&lt;/em>&lt;/li>
-&lt;li>&lt;code>GET /api.php?resource=sales&lt;/code> — List recorded sales&lt;/li>
-&lt;li>&lt;code>POST /api.php?resource=sales&lt;/code> — Record sale &lt;em>(token required)&lt;/em>&lt;/li>
-&lt;/ol>
-&lt;h2 id="environment-setup">Environment Setup&lt;/h2>
-&lt;ul>
-&lt;li>Start database: &lt;code>brew services start mysql&lt;/code>&lt;/li>
-&lt;li>Provision schema: &lt;code>mysql -u root -p &amp;lt; code/schema.sql&lt;/code>&lt;/li>
-&lt;li>Admin credentials: username &lt;code>admin&lt;/code>, password &lt;code>Carlo&lt;/code>&lt;/li>
-&lt;li>Launch dev API: &lt;code>php -S localhost:3000 -t code&lt;/code>&lt;/li>
-&lt;li>Verify readiness: &lt;code>GET http://localhost:3000/api.php&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;h2 id="database-schema">Database Schema&lt;/h2>
-&lt;ul>
-&lt;li>&lt;code>cars&lt;/code>: &lt;code>id&lt;/code>, &lt;code>make&lt;/code>, &lt;code>model&lt;/code>, &lt;code>year&lt;/code>, &lt;code>price&lt;/code>, &lt;code>status&lt;/code>&lt;/li>
-&lt;li>&lt;code>sales&lt;/code>: &lt;code>id&lt;/code>, &lt;code>car_id&lt;/code>, &lt;code>customer_name&lt;/code>, &lt;code>sale_price&lt;/code>, &lt;code>date&lt;/code>&lt;/li>
-&lt;li>&lt;code>staff&lt;/code>: &lt;code>id&lt;/code>, &lt;code>username&lt;/code>, &lt;code>password_hash&lt;/code>, &lt;code>role&lt;/code>, &lt;code>token&lt;/code>&lt;/li>
-&lt;li>Foreign key: &lt;code>sales.car_id → cars.id (ON DELETE CASCADE)&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;h2 id="authentication-flow">Authentication Flow&lt;/h2>
-&lt;ol>
-&lt;li>Client submits credentials to &lt;code>POST /api.php?resource=auth&lt;/code>&lt;/li>
-&lt;li>Server retrieves salted hash from &lt;code>staff&lt;/code> and validates password&lt;/li>
-&lt;li>Token generated via &lt;code>random_bytes(32)&lt;/code> and persisted on staff record&lt;/li>
-&lt;li>Response returns &lt;code>{&amp;quot;token&amp;quot;: &amp;quot;&amp;lt;64 hex characters&amp;gt;&amp;quot;}&lt;/code>&lt;/li>
-&lt;li>Protected requests include &lt;code>Authorization: Bearer &amp;lt;token&amp;gt;&lt;/code>&lt;/li>
-&lt;/ol>
-&lt;h3 id="authentication-example">Authentication Example&lt;/h3>
-&lt;p>Request:&lt;/p></description></item><item><title>Project 2 – Laravel, Docker, Hugo</title><link>https://tofuszn.github.io/ASE_Project2/docs/project2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://tofuszn.github.io/ASE_Project2/docs/project2/</guid><description>&lt;h1 id="ase230-project-2--laravel-rest-api--docker--hugo">ASE230 Project 2 – Laravel REST API + Docker + Hugo&lt;/h1>
+&lt;/ul></description></item><item><title>Project 2 – Laravel, Docker, Hugo</title><link>https://tofuszn.github.io/ASE_Project2/docs/project2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://tofuszn.github.io/ASE_Project2/docs/project2/</guid><description>&lt;h1 id="ase230-project-2--laravel-rest-api--docker--hugo">ASE230 Project 2 – Laravel REST API + Docker + Hugo&lt;/h1>
 &lt;h2 id="overview">Overview&lt;/h2>
 &lt;ul>
 &lt;li>Re-implemented the Project 1 dealership API using Laravel 12 + Sanctum.&lt;/li>
@@ -220,4 +161,76 @@
 &lt;h2 id="how-to-run-local">How to Run (Local)&lt;/h2>
 &lt;pre tabindex="0">&lt;code>cd code
 ./run.sh
-&lt;/code>&lt;/pre>&lt;p>Hit &lt;code>http://localhost:8000/api&lt;/code> and use &lt;code>curl.sh&lt;/code> or &lt;code>tests.html&lt;/code>.&lt;/p></description></item></channel></rss>
+&lt;/code>&lt;/pre>&lt;p>Hit &lt;code>http://localhost:8000/api&lt;/code> and use &lt;code>curl.sh&lt;/code> or &lt;code>tests.html&lt;/code>.&lt;/p></description></item><item><title>ASE230 Project 1 – Dealership API</title><link>https://tofuszn.github.io/ASE_Project2/docs/project1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://tofuszn.github.io/ASE_Project2/docs/project1/</guid><description>&lt;h1 id="ase230-project-1">ASE230 Project 1&lt;/h1>
+&lt;h2 id="dealership-rest-api-overview">Dealership REST API Overview&lt;/h2>
+&lt;ul>
+&lt;li>Carlo Calipo&lt;/li>
+&lt;li>PHP / MySQL / NGINX deployment&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h1 id="presentation-roadmap">Presentation Roadmap&lt;/h1>
+&lt;ul>
+&lt;li>Project objective &amp;amp; architecture&lt;/li>
+&lt;li>Authentication design&lt;/li>
+&lt;li>API catalogue with request / response samples&lt;/li>
+&lt;li>Testing strategy and evidence&lt;/li>
+&lt;li>Deployment to NGINX&lt;/li>
+&lt;li>Operational refinements &amp;amp; next steps&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h1 id="technology-stack">Technology Stack&lt;/h1>
+&lt;ul>
+&lt;li>PHP 8.2 with PDO (no framework dependencies)&lt;/li>
+&lt;li>MySQL 8 (Homebrew-managed service)&lt;/li>
+&lt;li>JSON payloads for all requests and responses&lt;/li>
+&lt;li>Bearer token authorization for state-changing endpoints&lt;/li>
+&lt;li>Tooling: &lt;code>code/curl.sh&lt;/code>, &lt;code>code/tests.html&lt;/code>, &lt;code>schema.sql&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h1 id="api-catalogue">API Catalogue&lt;/h1>
+&lt;ol>
+&lt;li>&lt;code>POST /api.php?resource=auth&lt;/code> — Authenticate &amp;amp; issue token&lt;/li>
+&lt;li>&lt;code>GET /api.php?resource=cars&lt;/code> — Retrieve inventory&lt;/li>
+&lt;li>&lt;code>GET /api.php?resource=cars&amp;amp;id={id}&lt;/code> — Retrieve specific vehicle&lt;/li>
+&lt;li>&lt;code>POST /api.php?resource=cars&lt;/code> — Create vehicle &lt;em>(token required)&lt;/em>&lt;/li>
+&lt;li>&lt;code>PUT /api.php?resource=cars&amp;amp;id={id}&lt;/code> — Update vehicle &lt;em>(token required)&lt;/em>&lt;/li>
+&lt;li>&lt;code>DELETE /api.php?resource=cars&amp;amp;id={id}&lt;/code> — Remove vehicle &lt;em>(token required)&lt;/em>&lt;/li>
+&lt;li>&lt;code>GET /api.php?resource=sales&lt;/code> — List recorded sales&lt;/li>
+&lt;li>&lt;code>POST /api.php?resource=sales&lt;/code> — Record sale &lt;em>(token required)&lt;/em>&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h1 id="environment-setup">Environment Setup&lt;/h1>
+&lt;ul>
+&lt;li>Start database: &lt;code>brew services start mysql&lt;/code>&lt;/li>
+&lt;li>Provision schema: &lt;code>mysql -u root -p &amp;lt; code/schema.sql&lt;/code>&lt;/li>
+&lt;li>Admin credentials: username &lt;code>admin&lt;/code>, password &lt;code>Carlo&lt;/code>&lt;/li>
+&lt;li>Launch development API: &lt;code>php -S localhost:3000 -t code&lt;/code>&lt;/li>
+&lt;li>Verify readiness: &lt;code>GET http://localhost:3000/api.php&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h1 id="database-schema">Database Schema&lt;/h1>
+&lt;ul>
+&lt;li>&lt;code>cars&lt;/code>: &lt;code>id&lt;/code>, &lt;code>make&lt;/code>, &lt;code>model&lt;/code>, &lt;code>year&lt;/code>, &lt;code>price&lt;/code>, &lt;code>status&lt;/code>&lt;/li>
+&lt;li>&lt;code>sales&lt;/code>: &lt;code>id&lt;/code>, &lt;code>car_id&lt;/code>, &lt;code>customer_name&lt;/code>, &lt;code>sale_price&lt;/code>, &lt;code>date&lt;/code>&lt;/li>
+&lt;li>&lt;code>staff&lt;/code>: &lt;code>id&lt;/code>, &lt;code>username&lt;/code>, &lt;code>password_hash&lt;/code>, &lt;code>role&lt;/code>, &lt;code>token&lt;/code>&lt;/li>
+&lt;li>Foreign key: &lt;code>sales.car_id → cars.id (ON DELETE CASCADE)&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h1 id="authentication-flow">Authentication Flow&lt;/h1>
+&lt;ol>
+&lt;li>Client submits credentials to &lt;code>POST /api.php?resource=auth&lt;/code>&lt;/li>
+&lt;li>Server retrieves salted hash from &lt;code>staff&lt;/code> and validates password&lt;/li>
+&lt;li>Token generated via &lt;code>random_bytes(32)&lt;/code> and persisted on staff record&lt;/li>
+&lt;li>Response returns &lt;code>{&amp;quot;token&amp;quot;: &amp;quot;&amp;lt;64 hex characters&amp;gt;&amp;quot;}&lt;/code>&lt;/li>
+&lt;li>Subsequent protected requests include &lt;code>Authorization: Bearer &amp;lt;token&amp;gt;&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h1 id="authentication-example">Authentication Example&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-http" data-lang="http">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">POST /api.php?resource=auth
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">Content-Type: application/json
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">{
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010"> &amp;#34;username&amp;#34;: &amp;#34;admin&amp;#34;,
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010"> &amp;#34;password&amp;#34;: &amp;#34;Carlo&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">}
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Response &lt;code>200 OK&lt;/code>:&lt;/p></description></item></channel></rss>

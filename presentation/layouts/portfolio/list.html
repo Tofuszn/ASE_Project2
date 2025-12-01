@@ -7,12 +7,10 @@
     </div>
   </section>
 
-  <div class="card-grid">
-    {{ range .Pages.ByWeight }}
-      <article class="card">
-        <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-        {{ with .Summary }}<p>{{ . }}</p>{{ else }}<p>{{ .Plain | truncate 140 }}</p>{{ end }}
-      </article>
-    {{ end }}
-  </div>
+  {{ range .Pages.ByWeight }}
+    <article class="card detail-card">
+      <h2>{{ .Title }}</h2>
+      {{ .Content }}
+    </article>
+  {{ end }}
 {{ end }}
