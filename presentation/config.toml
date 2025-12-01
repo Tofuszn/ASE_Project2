@@ -12,13 +12,13 @@ canonifyURLs = false
 [menu]
   [[menu.main]]
     name = "Home"
-    url = "/"
+    url = ""
     weight = 1
   [[menu.main]]
     name = "Docs"
-    url = "/docs/"
+    url = "docs/"
     weight = 2
   [[menu.main]]
     name = "Portfolio"
-    url = "/portfolio/"
+    url = "portfolio/"
     weight = 3
