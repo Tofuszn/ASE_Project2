@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+  <meta charset="utf-8" />
+  <title>Dealership API (Laravel) Tester</title>
+  <body>
+    <h1>Laravel Dealership API Tester</h1>
+
+    <section>
+      <h3>Login</h3>
+      <button onclick="login()">Login as admin</button>
+      <pre id="loginOut"></pre>
+    </section>
+
+    <section>
+      <h3>Cars</h3>
+      <button onclick="listCars()">List Cars</button>
+      <button onclick="createCar()">Create Car (secured)</button>
+      <button onclick="updateCar()">Update Car (secured)</button>
+      <button onclick="deleteCar()">Delete Car (secured)</button>
+      <pre id="carsOut"></pre>
+    </section>
+
+    <section>
+      <h3>Sales</h3>
+      <button onclick="listSales()">List Sales</button>
+      <button onclick="createSale()">Create Sale (secured)</button>
+      <pre id="salesOut"></pre>
+    </section>
+
+    <script>
+      const origin = window.location.origin;
+      const BASE = origin && origin.startsWith('http')
+        ? `${origin}/api`
+        : 'http://localhost:8000/api';
+      let TOKEN = '';
+      let LAST_CAR_ID = null;
+
+      function requireToken() {
+        if (!TOKEN) {
+          alert('Login first to obtain a token.');
+          throw new Error('No token');
+        }
+      }
+
+      async function login() {
+        const res = await fetch(`${BASE}/auth/login`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username: 'admin', password: 'Carlo' }),
+        });
+        const data = await res.json();
+        TOKEN = data.token || '';
+        document.getElementById('loginOut').textContent = JSON.stringify(data, null, 2);
+      }
+
+      async function listCars() {
+        const res = await fetch(`${BASE}/cars`);
+        const data = await res.json();
+        document.getElementById('carsOut').textContent = JSON.stringify(data, null, 2);
+        if (Array.isArray(data) && data.length) LAST_CAR_ID = data[0].id;
+      }
+
+      async function createCar() {
+        requireToken();
+        const make = prompt('Enter make', 'Toyota') || 'Toyota';
+        const model = prompt('Enter model', 'Supra') || 'Supra';
+        const year = Number(prompt('Enter year', '2021') || 2021);
+        const price = Number(prompt('Enter price', '55000') || 55000);
+        const payload = { make, model, year, price };
+        const res = await fetch(`${BASE}/cars`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${TOKEN}`,
+          },
+          body: JSON.stringify(payload),
+        });
+        const data = await res.json();
+        LAST_CAR_ID = data.id || LAST_CAR_ID;
+        document.getElementById('carsOut').textContent = JSON.stringify(data, null, 2);
+      }
+
+      async function updateCar() {
+        requireToken();
+        const targetId = prompt('Enter car ID to update', LAST_CAR_ID || '') || LAST_CAR_ID;
+        if (!targetId) await listCars();
+        const price = prompt('New price (leave blank to skip)', '');
+        const status = prompt("New status ('available' or 'sold', leave blank to skip)", '');
+        const payload = {};
+        if (price !== '') payload.price = Number(price);
+        if (status !== '') payload.status = status;
+        const res = await fetch(`${BASE}/cars/${targetId}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${TOKEN}`,
+          },
+          body: JSON.stringify(payload),
+        });
+        const data = await res.json();
+        document.getElementById('carsOut').textContent = JSON.stringify(data, null, 2);
+      }
+
+      async function deleteCar() {
+        requireToken();
+        const targetId = prompt('Enter car ID to delete', LAST_CAR_ID || '') || LAST_CAR_ID;
+        if (!targetId) await listCars();
+        const res = await fetch(`${BASE}/cars/${targetId}`, {
+          method: 'DELETE',
+          headers: { Authorization: `Bearer ${TOKEN}` },
+        });
+        const data = await res.json();
+        document.getElementById('carsOut').textContent = JSON.stringify(data, null, 2);
+      }
+
+      async function listSales() {
+        const res = await fetch(`${BASE}/sales`);
+        const data = await res.json();
+        document.getElementById('salesOut').textContent = JSON.stringify(data, null, 2);
+      }
+
+      async function createSale() {
+        requireToken();
+        const carId = prompt('Enter car ID to sell', LAST_CAR_ID || '') || LAST_CAR_ID;
+        if (!carId) await createCar();
+        const customer = prompt('Customer name', 'Jane Doe') || 'Jane Doe';
+        const salePrice = Number(prompt('Sale price', '53500') || 53500);
+        const res = await fetch(`${BASE}/sales`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${TOKEN}`,
+          },
+          body: JSON.stringify({
+            car_id: carId,
+            customer_name: customer,
+            sale_price: salePrice,
+          }),
+        });
+        const data = await res.json();
+        document.getElementById('salesOut').textContent = JSON.stringify(data, null, 2);
+      }
+    </script>
+  </body>
+</html>

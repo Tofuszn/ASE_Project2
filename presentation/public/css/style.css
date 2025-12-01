@@ -1,0 +1,28 @@
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  background: #0f172a;
+  color: #f8fafc;
+  position: sticky;
+  top: 0;
+}
+.site-header nav a {
+  color: #f8fafc;
+  margin-left: 1rem;
+  text-decoration: none;
+  font-weight: 600;
+}
+.site-header nav a:hover { text-decoration: underline; }
+.brand .title { display: block; font-size: 1.1rem; font-weight: 700; }
+.brand .desc { font-size: 0.9rem; opacity: 0.85; }
+.content { max-width: 900px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; }
+.content h1, .content h2, .content h3 { color: #0f172a; }
+.list { list-style: none; padding: 0; }
+.list li { margin: 0.5rem 0 1rem; }
+.list a { font-weight: 700; color: #0f172a; text-decoration: none; }
+.list a:hover { text-decoration: underline; }
+.site-footer { text-align: center; padding: 1rem; color: #475569; border-top: 1px solid #e2e8f0; }
+body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, sans-serif; background: #f8fafc; color: #1e293b; }
+article p { margin-bottom: 1rem; }

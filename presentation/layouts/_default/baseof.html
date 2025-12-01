@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ .Site.Title }} - {{ block "title" . }}{{ .Title }}{{ end }}</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <span class="title">{{ .Site.Title }}</span>
+      <span class="desc">{{ .Site.Params.description }}</span>
+    </div>
+    <nav>
+      {{ range .Site.Menus.main }}
+        <a href="{{ .URL }}">{{ .Name }}</a>
+      {{ end }}
+    </nav>
+  </header>
+  <main class="content">
+    {{ block "main" . }}{{ end }}
+  </main>
+  <footer class="site-footer">
+    <p>&copy; {{ now.Year }} {{ .Site.Params.author }} — Built with Hugo</p>
+  </footer>
+</body>
+</html>

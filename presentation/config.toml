@@ -1,0 +1,22 @@
+baseURL = "https://<your-github-username>.github.io/<your-repo-name>/"
+languageCode = "en-us"
+title = "ASE230 Portfolio"
+pagination.pagerSize = 10
+
+[params]
+  description = "ASE230 REST API + Docker + Hugo portfolio"
+  author = "Carlo Calipo"
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Docs"
+    url = "/docs/"
+    weight = 2
+  [[menu.main]]
+    name = "Portfolio"
+    url = "/portfolio/"
+    weight = 3

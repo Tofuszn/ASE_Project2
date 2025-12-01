@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Portfolio on ASE230 Portfolio</title><link>https://&lt;your-github-username>.github.io/%3Cyour-repo-name%3E/portfolio/</link><description>Recent content in Portfolio on ASE230 Portfolio</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://<your-github-username>.github.io/%3Cyour-repo-name%3E/portfolio/index.xml" rel="self" type="application/rss+xml"/><item><title>Projects</title><link>https://&lt;your-github-username>.github.io/%3Cyour-repo-name%3E/portfolio/projects/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://&lt;your-github-username>.github.io/%3Cyour-repo-name%3E/portfolio/projects/</guid><description>&lt;h2 id="project-1--php-dealership-api">Project 1 – PHP Dealership API&lt;/h2>
+&lt;ul>
+&lt;li>Plain PHP + PDO, custom token auth.&lt;/li>
+&lt;li>Endpoints: auth, cars CRUD, sales create/list.&lt;/li>
+&lt;li>Assets: &lt;code>curl.sh&lt;/code>, &lt;code>tests.html&lt;/code>, &lt;code>schema.sql&lt;/code>, &lt;code>database.php&lt;/code>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="project-2--laravel-dealership-api">Project 2 – Laravel Dealership API&lt;/h2>
+&lt;ul>
+&lt;li>Laravel 12 + Sanctum; Eloquent models for cars/sales/users (ULID IDs).&lt;/li>
+&lt;li>Protected routes for write operations; seeder creates admin + sample cars.&lt;/li>
+&lt;li>Scripts: &lt;code>run.sh&lt;/code> (local), &lt;code>setup.sh&lt;/code> + Docker stack.&lt;/li>
+&lt;li>Tests: &lt;code>code/tests/curl.sh&lt;/code>, &lt;code>code/tests/tests.html&lt;/code>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="documentation--deployment">Documentation &amp;amp; Deployment&lt;/h2>
+&lt;ul>
+&lt;li>Hugo site (this site) under &lt;code>presentation/&lt;/code>.&lt;/li>
+&lt;li>GitHub Actions workflow for GitHub Pages deployment.&lt;/li>
+&lt;/ul>
+&lt;h2 id="skills-demonstrated">Skills Demonstrated&lt;/h2>
+&lt;ul>
+&lt;li>REST API design, authentication, ORM modeling.&lt;/li>
+&lt;li>Dockerization, one-command deploy scripts.&lt;/li>
+&lt;li>Static site generation and CI/CD for docs.&lt;/li>
+&lt;/ul></description></item></channel></rss>
