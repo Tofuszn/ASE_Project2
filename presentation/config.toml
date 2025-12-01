@@ -1,9 +1,11 @@
 baseURL = "https://tofuszn.github.io/ASE_Project2/"
 languageCode = "en-us"
 title = "ASE230 Portfolio"
-pagination.pagerSize = 10
 relativeURLs = false
 canonifyURLs = true
+
+[pagination]
+  pagerSize = 10
 
 [params]
   description = "ASE230 REST API + Docker + Hugo portfolio"

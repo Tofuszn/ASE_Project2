@@ -1,23 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docs on ASE230 Portfolio</title><link>https://&lt;your-github-username>.github.io/%3Cyour-repo-name%3E/docs/</link><description>Recent content in Docs on ASE230 Portfolio</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://<your-github-username>.github.io/%3Cyour-repo-name%3E/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Project 1 – PHP Dealership API</title><link>https://&lt;your-github-username>.github.io/%3Cyour-repo-name%3E/docs/project1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://&lt;your-github-username>.github.io/%3Cyour-repo-name%3E/docs/project1/</guid><description>&lt;h2 id="overview">Overview&lt;/h2>
-&lt;p>Project 1 delivered a plain PHP dealership REST API using PDO, JWT-like tokens, and a MySQL schema for &lt;code>cars&lt;/code>, &lt;code>sales&lt;/code>, and &lt;code>staff&lt;/code>.&lt;/p>
-&lt;h2 id="endpoints-project-1">Endpoints (Project 1)&lt;/h2>
-&lt;ul>
-&lt;li>&lt;code>POST ?resource=auth&lt;/code> – login with username/password, returns token&lt;/li>
-&lt;li>&lt;code>GET|POST|PUT|DELETE ?resource=cars[&amp;amp;id]&lt;/code>&lt;/li>
-&lt;li>&lt;code>GET|POST ?resource=sales&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;h2 id="database-schema">Database Schema&lt;/h2>
-&lt;ul>
-&lt;li>&lt;code>cars(id, make, model, year, price, status)&lt;/code>&lt;/li>
-&lt;li>&lt;code>sales(id, car_id, customer_name, sale_price, date)&lt;/code>&lt;/li>
-&lt;li>&lt;code>staff(id, username, password_hash, role, token)&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;h2 id="testing-aids-project-1">Testing Aids (Project 1)&lt;/h2>
-&lt;ul>
-&lt;li>&lt;code>curl.sh&lt;/code> to run the full flow (login, CRUD, sales)&lt;/li>
-&lt;li>&lt;code>tests.html&lt;/code> browser harness to exercise endpoints&lt;/li>
-&lt;li>&lt;code>schema.sql&lt;/code> and &lt;code>database.php&lt;/code> for setup and helpers&lt;/li>
-&lt;/ul></description></item><item><title>Project 2 – Laravel, Docker, Hugo</title><link>https://&lt;your-github-username>.github.io/%3Cyour-repo-name%3E/docs/project2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://&lt;your-github-username>.github.io/%3Cyour-repo-name%3E/docs/project2/</guid><description>&lt;h2 id="goals">Goals&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docs on ASE230 Portfolio</title><link>https://tofuszn.github.io/ASE_Project2/docs/</link><description>Recent content in Docs on ASE230 Portfolio</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://tofuszn.github.io/ASE_Project2/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Project 2 – Laravel, Docker, Hugo</title><link>https://tofuszn.github.io/ASE_Project2/docs/project2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://tofuszn.github.io/ASE_Project2/docs/project2/</guid><description>&lt;h2 id="goals">Goals&lt;/h2>
 &lt;ul>
 &lt;li>Re-implement Project 1 API using Laravel 12 + Sanctum&lt;/li>
 &lt;li>Use Eloquent ORM (no raw SQL)&lt;/li>
@@ -38,4 +19,63 @@
 &lt;li>Migrations: cars, sales, users, personal access tokens&lt;/li>
 &lt;li>Seeder: admin user (&lt;code>admin&lt;/code> / &lt;code>Carlo&lt;/code>) and sample cars&lt;/li>
 &lt;/ul>
-&lt;p>Auth:&lt;/p></description></item></channel></rss>
+&lt;p>Auth:&lt;/p></description></item><item><title>Project 1 – PHP Dealership API</title><link>https://tofuszn.github.io/ASE_Project2/docs/project1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://tofuszn.github.io/ASE_Project2/docs/project1/</guid><description>&lt;h1 id="ase230-project-1--dealership-rest-api">ASE230 Project 1 – Dealership REST API&lt;/h1>
+&lt;h2 id="overview">Overview&lt;/h2>
+&lt;ul>
+&lt;li>PHP / MySQL / NGINX deployment&lt;/li>
+&lt;li>Plain PHP 8.2 + PDO (no framework)&lt;/li>
+&lt;li>JSON requests/responses; bearer token for write operations&lt;/li>
+&lt;/ul>
+&lt;h2 id="presentation-roadmap">Presentation Roadmap&lt;/h2>
+&lt;ul>
+&lt;li>Project objective &amp;amp; architecture&lt;/li>
+&lt;li>Authentication design&lt;/li>
+&lt;li>API catalogue with request/response samples&lt;/li>
+&lt;li>Testing strategy and evidence&lt;/li>
+&lt;li>Deployment to NGINX&lt;/li>
+&lt;li>Operational refinements &amp;amp; next steps&lt;/li>
+&lt;/ul>
+&lt;h2 id="technology-stack">Technology Stack&lt;/h2>
+&lt;ul>
+&lt;li>PHP 8.2 with PDO (no framework dependencies)&lt;/li>
+&lt;li>MySQL 8 (Homebrew-managed service)&lt;/li>
+&lt;li>JSON payloads for all requests/responses&lt;/li>
+&lt;li>Bearer token authorization for state-changing endpoints&lt;/li>
+&lt;li>Tooling: &lt;code>curl.sh&lt;/code>, &lt;code>tests.html&lt;/code>, &lt;code>schema.sql&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="api-catalogue">API Catalogue&lt;/h2>
+&lt;ol>
+&lt;li>&lt;code>POST /api.php?resource=auth&lt;/code> — Authenticate &amp;amp; issue token&lt;/li>
+&lt;li>&lt;code>GET /api.php?resource=cars&lt;/code> — Retrieve inventory&lt;/li>
+&lt;li>&lt;code>GET /api.php?resource=cars&amp;amp;id={id}&lt;/code> — Retrieve specific vehicle&lt;/li>
+&lt;li>&lt;code>POST /api.php?resource=cars&lt;/code> — Create vehicle &lt;em>(token required)&lt;/em>&lt;/li>
+&lt;li>&lt;code>PUT /api.php?resource=cars&amp;amp;id={id}&lt;/code> — Update vehicle &lt;em>(token required)&lt;/em>&lt;/li>
+&lt;li>&lt;code>DELETE /api.php?resource=cars&amp;amp;id={id}&lt;/code> — Remove vehicle &lt;em>(token required)&lt;/em>&lt;/li>
+&lt;li>&lt;code>GET /api.php?resource=sales&lt;/code> — List recorded sales&lt;/li>
+&lt;li>&lt;code>POST /api.php?resource=sales&lt;/code> — Record sale &lt;em>(token required)&lt;/em>&lt;/li>
+&lt;/ol>
+&lt;h2 id="environment-setup">Environment Setup&lt;/h2>
+&lt;ul>
+&lt;li>Start database: &lt;code>brew services start mysql&lt;/code>&lt;/li>
+&lt;li>Provision schema: &lt;code>mysql -u root -p &amp;lt; code/schema.sql&lt;/code>&lt;/li>
+&lt;li>Admin credentials: username &lt;code>admin&lt;/code>, password &lt;code>Carlo&lt;/code>&lt;/li>
+&lt;li>Launch dev API: &lt;code>php -S localhost:3000 -t code&lt;/code>&lt;/li>
+&lt;li>Verify readiness: &lt;code>GET http://localhost:3000/api.php&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="database-schema">Database Schema&lt;/h2>
+&lt;ul>
+&lt;li>&lt;code>cars&lt;/code>: &lt;code>id&lt;/code>, &lt;code>make&lt;/code>, &lt;code>model&lt;/code>, &lt;code>year&lt;/code>, &lt;code>price&lt;/code>, &lt;code>status&lt;/code>&lt;/li>
+&lt;li>&lt;code>sales&lt;/code>: &lt;code>id&lt;/code>, &lt;code>car_id&lt;/code>, &lt;code>customer_name&lt;/code>, &lt;code>sale_price&lt;/code>, &lt;code>date&lt;/code>&lt;/li>
+&lt;li>&lt;code>staff&lt;/code>: &lt;code>id&lt;/code>, &lt;code>username&lt;/code>, &lt;code>password_hash&lt;/code>, &lt;code>role&lt;/code>, &lt;code>token&lt;/code>&lt;/li>
+&lt;li>Foreign key: &lt;code>sales.car_id → cars.id (ON DELETE CASCADE)&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="authentication-flow">Authentication Flow&lt;/h2>
+&lt;ol>
+&lt;li>Client submits credentials to &lt;code>POST /api.php?resource=auth&lt;/code>&lt;/li>
+&lt;li>Server retrieves salted hash from &lt;code>staff&lt;/code> and validates password&lt;/li>
+&lt;li>Token generated via &lt;code>random_bytes(32)&lt;/code> and persisted on staff record&lt;/li>
+&lt;li>Response returns &lt;code>{&amp;quot;token&amp;quot;: &amp;quot;&amp;lt;64 hex characters&amp;gt;&amp;quot;}&lt;/code>&lt;/li>
+&lt;li>Protected requests include &lt;code>Authorization: Bearer &amp;lt;token&amp;gt;&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;h3 id="authentication-example">Authentication Example&lt;/h3>
+&lt;p>Request:&lt;/p></description></item></channel></rss>

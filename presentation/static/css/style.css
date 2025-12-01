@@ -36,3 +36,4 @@ article p { margin-bottom: 1rem; }
 .hero h1 { margin: 0.2rem 0; }
 .hero .lede { color: #475569; }
 .detail-card { max-width: 800px; margin: 0 auto; }
+.card p { margin: 0.25rem 0 0; color: #475569; }

@@ -1,5 +1,6 @@
 ---
 title: "Project 2 – Laravel, Docker, Hugo"
+weight: 20
 weight: 2
 ---
 
