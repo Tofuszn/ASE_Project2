@@ -3,60 +3,159 @@ title: "Project 2 – Laravel, Docker, Hugo"
 weight: 20
 ---
 
-## Goals
+# ASE230 Project 2 – Laravel REST API + Docker + Hugo
 
-- Re-implement Project 1 API using Laravel 12 + Sanctum
-- Use Eloquent ORM (no raw SQL)
-- Provide one-command deploy scripts and Docker stack
-- Document with Hugo and publish via GitHub Pages/Actions
+## Overview
+- Re-implemented the Project 1 dealership API using Laravel 12 + Sanctum.
+- Eloquent-only data layer; no raw SQL.
+- Docker stack with one-command scripts for app + MySQL.
+- Hugo documentation + GitHub Pages auto-deploy via Actions.
 
-## Laravel API (module 2)
+## Goals & Outcomes
+- **API parity** with Project 1 plus Laravel best practices.
+- **Auth**: Sanctum bearer tokens for all write operations.
+- **Data**: ULID users; cars/sales tables with relationships.
+- **Ops**: One-command local runner + Docker setup script.
+- **Docs**: Hugo site with screenshots and evidence.
+- **CI/CD**: GitHub Actions builds docs and publishes to Pages.
 
-Endpoints:
+## Architecture
+- Laravel 12 (PHP 8.4) with Sanctum.
+- MySQL 8 (Docker service).
+- Eloquent models: `User`, `Car`, `Sale`.
+- Routes under `/api/*` with `auth:sanctum` for write paths.
+- Seeded admin user: `admin` / `Carlo`.
 
-- `POST /api/auth/login` → bearer token
-- `GET /api/cars`, `GET /api/cars/{id}`
-- `POST /api/cars` (auth), `PUT /api/cars/{id}` (auth), `DELETE /api/cars/{id}` (auth)
-- `GET /api/sales`, `POST /api/sales` (auth)
+## API Catalogue
+- `POST /api/auth/login` — Issue bearer token.  
+- `GET /api/cars` — List cars.  
+- `GET /api/cars/{id}` — Get car details.  
+- `POST /api/cars` — Create car (auth).  
+- `PUT /api/cars/{id}` — Update car (auth).  
+- `DELETE /api/cars/{id}` — Delete car (auth).  
+- `GET /api/sales` — List sales.  
+- `POST /api/sales` — Record sale (auth).  
 
-Data:
+## Auth Flow (Sanctum)
+1. Client posts credentials to `/api/auth/login`.
+2. Password hash verified; Sanctum token created.
+3. Token returned; subsequent writes require `Authorization: Bearer <token>`.
+4. `auth:sanctum` middleware protects POST/PUT/DELETE routes.
 
-- Models: `User` (ULID IDs, Sanctum), `Car`, `Sale`
-- Migrations: cars, sales, users, personal access tokens
-- Seeder: admin user (`admin` / `Carlo`) and sample cars
+## Data Model
+- **users**: ULID id, username, role, password (hashed).  
+- **cars**: make, model, year, price, status (`available|sold`).  
+- **sales**: car_id, customer_name, sale_price, timestamps.  
+- **personal_access_tokens**: Sanctum tokens with ULID morphs.  
+- Relationships: User has tokens; Car has many Sales; Sale belongs to Car.
 
-Auth:
-
-- Laravel Sanctum (`HasApiTokens`, `auth:sanctum` middleware on protected routes)
+## Migrations & Seeders
+- Migrations create users, cars, sales, Sanctum tokens.
+- Seeder:
+  - Admin user (`admin` / `Carlo`).
+  - Sample cars (Supra, Mustang).
+- Idempotent seeding (updateOrCreate / firstOrCreate).
 
 ## Deployment Scripts
-
-- Local: `code/run.sh` (composer install, key:generate, migrate --seed, serve)
-- Docker: `code/setup.sh` (builds app + MySQL, runs migrate --seed)
-- Docker assets: `code/Dockerfile`, `code/docker-compose.yml`
+- **Local:** `code/run.sh`
+  - composer install, `php artisan key:generate`, migrate --seed, serve on :8000.
+- **Docker:** `code/setup.sh`
+  - Builds app + MySQL, waits for DB, migrate --seed.
+- **Compose:** `code/docker-compose.yml` (app + MySQL), `code/Dockerfile` (PHP 8.4).
 
 ## Testing Aids
+- `code/tests/curl.sh` — full flow: login → CRUD cars → sale → delete.
+- `code/tests/tests.html` — prompt-based browser harness for manual checks.
 
-- `code/tests/curl.sh` full flow
-- `code/tests/tests.html` prompt-based browser tester
+## Evidence (Screenshots)
+{{< figure src="/images/setupSS.png" alt="setup.sh success" >}}
 
-## Evidence
+{{< figure src="/images/htmlTestSS.png" alt="Browser tester output" >}}
 
-![setup.sh success](/images/setupSS.png)
+{{< figure src="/images/curlTestSS.png" alt="cURL flow output" >}}
 
-![Browser tester](/images/htmlTestSS.png)
+## Configuration Notes
+- `.env` set for MySQL host `db` (Docker) or `127.0.0.1` locally.
+- Sanctum guard added; ULID morph for tokens to avoid truncation.
+- CORS enabled for `/api/*`.
 
-![cURL flow](/images/curlTestSS.png)
+## Lessons Learned
+- Composer lock demanded PHP 8.4 in Docker to match deps.
+- Sanctum + ULID requires `ulidMorphs` on `personal_access_tokens`.
+- Canonical URLs for GitHub Pages subpath to fix link issues.
+- Seeders should be idempotent to avoid duplicate admin errors.
 
-## Hugo Docs & Pages (module 3)
+## Troubleshooting
+- **Auth 500 + tokenable_id truncation**: use `ulidMorphs` in tokens migration.
+- **Pages links doubled path**: set `baseURL` and use canonical URLs; adjust menu links.
+- **Docker compose DB not found**: ensure services running, rerun `setup.sh`.
 
-- Hugo site lives in `presentation/`
-- Custom layouts (no external theme) under `presentation/layouts/`
-- Content: Project 1/2 docs + portfolio pages
-- GitHub Actions workflow publishes Hugo output to GitHub Pages
+## Detailed Endpoint Behaviors
+- Cars POST/PUT validate make/model/year/price; status optional on update.
+- Sales POST validates car exists; marks car as `sold` after sale creation.
+- Deletes return `{deleted: true}` and 404 when re-fetching.
 
-## Next Steps / Setup
+## Security Considerations
+- Sanctum tokens only; no sessions/cookies.
+- Bearer required for all write operations.
+- Validation on inputs; 404/401/403 responses for bad states.
 
-1. Set `baseURL` in `presentation/config.toml` to your GitHub Pages URL.
-2. Build locally: `cd presentation && hugo` (install Hugo if needed).
-3. Deploy automatically: push to GitHub with the provided workflow.
+## Performance & Stability
+- Simple query patterns via Eloquent.
+- Seeded data for instant testing.
+- Docker isolates app + DB; consistent local/dev environment.
+
+## Documentation & Pages
+- Hugo site under `presentation/` with custom layouts (no external theme).
+- Docs for Project1/Project2, Portfolio, screenshots, links to tests.
+- GitHub Actions (`.github/workflows/gh-pages.yml`) builds Hugo and deploys to Pages.
+
+## How to Run (Local)
+```
+cd code
+./run.sh
+```
+Hit `http://localhost:8000/api` and use `curl.sh` or `tests.html`.
+
+## How to Run (Docker)
+```
+cd code
+./setup.sh
+```
+App on `http://localhost:8000/api`. Credentials: `admin` / `Carlo`.
+
+## Testing Flow (Sample)
+1) Login → token  
+2) Create car (auth)  
+3) Update price (auth)  
+4) Record sale (auth)  
+5) List sales  
+6) Delete car (auth) → 404 on fetch  
+
+## Evidence Narrative
+- **setup.sh**: shows successful build, migrate, seed with app+db containers.
+- **Browser tester**: manual buttons for auth/cars/sales returning JSON.
+- **cURL flow**: scripted end-to-end outputs confirming CRUD + sale.
+
+## Future Enhancements
+- Add pagination and filters to `/api/cars`.
+- Add OpenAPI/Swagger documentation.
+- Add PHPUnit feature tests for controllers.
+- Add CI to run tests on push.
+
+## Key Files Reference
+- Routes: `code/backend/routes/api.php`
+- Controllers: `AuthController`, `CarController`, `SaleController`
+- Models: `User` (ULID, HasApiTokens), `Car`, `Sale`
+- Migrations: users, cars, sales, personal_access_tokens (ULID morph)
+- Seeders: `DatabaseSeeder` (admin + sample cars)
+- Scripts: `run.sh`, `setup.sh`
+- Tests: `code/tests/curl.sh`, `code/tests/tests.html`
+
+## Quick FAQ
+- **Why ULID?** Stable, sortable identifiers; needed ULID morph for Sanctum.
+- **Why PHP 8.4 in Docker?** Composer lock pinned Symfony 8 packages requiring 8.4.
+- **DB errors on tokenable_id?** Use `ulidMorphs` in Sanctum tokens migration.
+
+## Summary
+Project 2 delivers a Laravel-based dealership API with Sanctum auth, Dockerized deployment, one-command scripts, comprehensive tests, and a Hugo site published via GitHub Pages, fully re-implementing Project 1 with modern tooling and CI/CD.

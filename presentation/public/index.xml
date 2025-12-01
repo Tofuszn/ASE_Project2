@@ -80,25 +80,144 @@
 &lt;li>Protected requests include &lt;code>Authorization: Bearer &amp;lt;token&amp;gt;&lt;/code>&lt;/li>
 &lt;/ol>
 &lt;h3 id="authentication-example">Authentication Example&lt;/h3>
-&lt;p>Request:&lt;/p></description></item><item><title>Project 2 – Laravel, Docker, Hugo</title><link>https://tofuszn.github.io/ASE_Project2/docs/project2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://tofuszn.github.io/ASE_Project2/docs/project2/</guid><description>&lt;h2 id="goals">Goals&lt;/h2>
+&lt;p>Request:&lt;/p></description></item><item><title>Project 2 – Laravel, Docker, Hugo</title><link>https://tofuszn.github.io/ASE_Project2/docs/project2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://tofuszn.github.io/ASE_Project2/docs/project2/</guid><description>&lt;h1 id="ase230-project-2--laravel-rest-api--docker--hugo">ASE230 Project 2 – Laravel REST API + Docker + Hugo&lt;/h1>
+&lt;h2 id="overview">Overview&lt;/h2>
 &lt;ul>
-&lt;li>Re-implement Project 1 API using Laravel 12 + Sanctum&lt;/li>
-&lt;li>Use Eloquent ORM (no raw SQL)&lt;/li>
-&lt;li>Provide one-command deploy scripts and Docker stack&lt;/li>
-&lt;li>Document with Hugo and publish via GitHub Pages/Actions&lt;/li>
+&lt;li>Re-implemented the Project 1 dealership API using Laravel 12 + Sanctum.&lt;/li>
+&lt;li>Eloquent-only data layer; no raw SQL.&lt;/li>
+&lt;li>Docker stack with one-command scripts for app + MySQL.&lt;/li>
+&lt;li>Hugo documentation + GitHub Pages auto-deploy via Actions.&lt;/li>
 &lt;/ul>
-&lt;h2 id="laravel-api-module-2">Laravel API (module 2)&lt;/h2>
-&lt;p>Endpoints:&lt;/p>
+&lt;h2 id="goals--outcomes">Goals &amp;amp; Outcomes&lt;/h2>
 &lt;ul>
-&lt;li>&lt;code>POST /api/auth/login&lt;/code> → bearer token&lt;/li>
-&lt;li>&lt;code>GET /api/cars&lt;/code>, &lt;code>GET /api/cars/{id}&lt;/code>&lt;/li>
-&lt;li>&lt;code>POST /api/cars&lt;/code> (auth), &lt;code>PUT /api/cars/{id}&lt;/code> (auth), &lt;code>DELETE /api/cars/{id}&lt;/code> (auth)&lt;/li>
-&lt;li>&lt;code>GET /api/sales&lt;/code>, &lt;code>POST /api/sales&lt;/code> (auth)&lt;/li>
+&lt;li>&lt;strong>API parity&lt;/strong> with Project 1 plus Laravel best practices.&lt;/li>
+&lt;li>&lt;strong>Auth&lt;/strong>: Sanctum bearer tokens for all write operations.&lt;/li>
+&lt;li>&lt;strong>Data&lt;/strong>: ULID users; cars/sales tables with relationships.&lt;/li>
+&lt;li>&lt;strong>Ops&lt;/strong>: One-command local runner + Docker setup script.&lt;/li>
+&lt;li>&lt;strong>Docs&lt;/strong>: Hugo site with screenshots and evidence.&lt;/li>
+&lt;li>&lt;strong>CI/CD&lt;/strong>: GitHub Actions builds docs and publishes to Pages.&lt;/li>
 &lt;/ul>
-&lt;p>Data:&lt;/p>
+&lt;h2 id="architecture">Architecture&lt;/h2>
 &lt;ul>
-&lt;li>Models: &lt;code>User&lt;/code> (ULID IDs, Sanctum), &lt;code>Car&lt;/code>, &lt;code>Sale&lt;/code>&lt;/li>
-&lt;li>Migrations: cars, sales, users, personal access tokens&lt;/li>
-&lt;li>Seeder: admin user (&lt;code>admin&lt;/code> / &lt;code>Carlo&lt;/code>) and sample cars&lt;/li>
+&lt;li>Laravel 12 (PHP 8.4) with Sanctum.&lt;/li>
+&lt;li>MySQL 8 (Docker service).&lt;/li>
+&lt;li>Eloquent models: &lt;code>User&lt;/code>, &lt;code>Car&lt;/code>, &lt;code>Sale&lt;/code>.&lt;/li>
+&lt;li>Routes under &lt;code>/api/*&lt;/code> with &lt;code>auth:sanctum&lt;/code> for write paths.&lt;/li>
+&lt;li>Seeded admin user: &lt;code>admin&lt;/code> / &lt;code>Carlo&lt;/code>.&lt;/li>
 &lt;/ul>
-&lt;p>Auth:&lt;/p></description></item></channel></rss>
+&lt;h2 id="api-catalogue">API Catalogue&lt;/h2>
+&lt;ul>
+&lt;li>&lt;code>POST /api/auth/login&lt;/code> — Issue bearer token.&lt;/li>
+&lt;li>&lt;code>GET /api/cars&lt;/code> — List cars.&lt;/li>
+&lt;li>&lt;code>GET /api/cars/{id}&lt;/code> — Get car details.&lt;/li>
+&lt;li>&lt;code>POST /api/cars&lt;/code> — Create car (auth).&lt;/li>
+&lt;li>&lt;code>PUT /api/cars/{id}&lt;/code> — Update car (auth).&lt;/li>
+&lt;li>&lt;code>DELETE /api/cars/{id}&lt;/code> — Delete car (auth).&lt;/li>
+&lt;li>&lt;code>GET /api/sales&lt;/code> — List sales.&lt;/li>
+&lt;li>&lt;code>POST /api/sales&lt;/code> — Record sale (auth).&lt;/li>
+&lt;/ul>
+&lt;h2 id="auth-flow-sanctum">Auth Flow (Sanctum)&lt;/h2>
+&lt;ol>
+&lt;li>Client posts credentials to &lt;code>/api/auth/login&lt;/code>.&lt;/li>
+&lt;li>Password hash verified; Sanctum token created.&lt;/li>
+&lt;li>Token returned; subsequent writes require &lt;code>Authorization: Bearer &amp;lt;token&amp;gt;&lt;/code>.&lt;/li>
+&lt;li>&lt;code>auth:sanctum&lt;/code> middleware protects POST/PUT/DELETE routes.&lt;/li>
+&lt;/ol>
+&lt;h2 id="data-model">Data Model&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>users&lt;/strong>: ULID id, username, role, password (hashed).&lt;/li>
+&lt;li>&lt;strong>cars&lt;/strong>: make, model, year, price, status (&lt;code>available|sold&lt;/code>).&lt;/li>
+&lt;li>&lt;strong>sales&lt;/strong>: car_id, customer_name, sale_price, timestamps.&lt;/li>
+&lt;li>&lt;strong>personal_access_tokens&lt;/strong>: Sanctum tokens with ULID morphs.&lt;/li>
+&lt;li>Relationships: User has tokens; Car has many Sales; Sale belongs to Car.&lt;/li>
+&lt;/ul>
+&lt;h2 id="migrations--seeders">Migrations &amp;amp; Seeders&lt;/h2>
+&lt;ul>
+&lt;li>Migrations create users, cars, sales, Sanctum tokens.&lt;/li>
+&lt;li>Seeder:
+&lt;ul>
+&lt;li>Admin user (&lt;code>admin&lt;/code> / &lt;code>Carlo&lt;/code>).&lt;/li>
+&lt;li>Sample cars (Supra, Mustang).&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Idempotent seeding (updateOrCreate / firstOrCreate).&lt;/li>
+&lt;/ul>
+&lt;h2 id="deployment-scripts">Deployment Scripts&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>Local:&lt;/strong> &lt;code>code/run.sh&lt;/code>
+&lt;ul>
+&lt;li>composer install, &lt;code>php artisan key:generate&lt;/code>, migrate &amp;ndash;seed, serve on :8000.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>Docker:&lt;/strong> &lt;code>code/setup.sh&lt;/code>
+&lt;ul>
+&lt;li>Builds app + MySQL, waits for DB, migrate &amp;ndash;seed.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>Compose:&lt;/strong> &lt;code>code/docker-compose.yml&lt;/code> (app + MySQL), &lt;code>code/Dockerfile&lt;/code> (PHP 8.4).&lt;/li>
+&lt;/ul>
+&lt;h2 id="testing-aids">Testing Aids&lt;/h2>
+&lt;ul>
+&lt;li>&lt;code>code/tests/curl.sh&lt;/code> — full flow: login → CRUD cars → sale → delete.&lt;/li>
+&lt;li>&lt;code>code/tests/tests.html&lt;/code> — prompt-based browser harness for manual checks.&lt;/li>
+&lt;/ul>
+&lt;h2 id="evidence-screenshots">Evidence (Screenshots)&lt;/h2>
+&lt;figure>&lt;img src="https://tofuszn.github.io/ASE_Project2/images/setupSS.png"
+ alt="setup.sh success">
+&lt;/figure>
+
+&lt;figure>&lt;img src="https://tofuszn.github.io/ASE_Project2/images/htmlTestSS.png"
+ alt="Browser tester output">
+&lt;/figure>
+
+&lt;figure>&lt;img src="https://tofuszn.github.io/ASE_Project2/images/curlTestSS.png"
+ alt="cURL flow output">
+&lt;/figure>
+
+&lt;h2 id="configuration-notes">Configuration Notes&lt;/h2>
+&lt;ul>
+&lt;li>&lt;code>.env&lt;/code> set for MySQL host &lt;code>db&lt;/code> (Docker) or &lt;code>127.0.0.1&lt;/code> locally.&lt;/li>
+&lt;li>Sanctum guard added; ULID morph for tokens to avoid truncation.&lt;/li>
+&lt;li>CORS enabled for &lt;code>/api/*&lt;/code>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="lessons-learned">Lessons Learned&lt;/h2>
+&lt;ul>
+&lt;li>Composer lock demanded PHP 8.4 in Docker to match deps.&lt;/li>
+&lt;li>Sanctum + ULID requires &lt;code>ulidMorphs&lt;/code> on &lt;code>personal_access_tokens&lt;/code>.&lt;/li>
+&lt;li>Canonical URLs for GitHub Pages subpath to fix link issues.&lt;/li>
+&lt;li>Seeders should be idempotent to avoid duplicate admin errors.&lt;/li>
+&lt;/ul>
+&lt;h2 id="troubleshooting">Troubleshooting&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>Auth 500 + tokenable_id truncation&lt;/strong>: use &lt;code>ulidMorphs&lt;/code> in tokens migration.&lt;/li>
+&lt;li>&lt;strong>Pages links doubled path&lt;/strong>: set &lt;code>baseURL&lt;/code> and use canonical URLs; adjust menu links.&lt;/li>
+&lt;li>&lt;strong>Docker compose DB not found&lt;/strong>: ensure services running, rerun &lt;code>setup.sh&lt;/code>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="detailed-endpoint-behaviors">Detailed Endpoint Behaviors&lt;/h2>
+&lt;ul>
+&lt;li>Cars POST/PUT validate make/model/year/price; status optional on update.&lt;/li>
+&lt;li>Sales POST validates car exists; marks car as &lt;code>sold&lt;/code> after sale creation.&lt;/li>
+&lt;li>Deletes return &lt;code>{deleted: true}&lt;/code> and 404 when re-fetching.&lt;/li>
+&lt;/ul>
+&lt;h2 id="security-considerations">Security Considerations&lt;/h2>
+&lt;ul>
+&lt;li>Sanctum tokens only; no sessions/cookies.&lt;/li>
+&lt;li>Bearer required for all write operations.&lt;/li>
+&lt;li>Validation on inputs; 404/401/403 responses for bad states.&lt;/li>
+&lt;/ul>
+&lt;h2 id="performance--stability">Performance &amp;amp; Stability&lt;/h2>
+&lt;ul>
+&lt;li>Simple query patterns via Eloquent.&lt;/li>
+&lt;li>Seeded data for instant testing.&lt;/li>
+&lt;li>Docker isolates app + DB; consistent local/dev environment.&lt;/li>
+&lt;/ul>
+&lt;h2 id="documentation--pages">Documentation &amp;amp; Pages&lt;/h2>
+&lt;ul>
+&lt;li>Hugo site under &lt;code>presentation/&lt;/code> with custom layouts (no external theme).&lt;/li>
+&lt;li>Docs for Project1/Project2, Portfolio, screenshots, links to tests.&lt;/li>
+&lt;li>GitHub Actions (&lt;code>.github/workflows/gh-pages.yml&lt;/code>) builds Hugo and deploys to Pages.&lt;/li>
+&lt;/ul>
+&lt;h2 id="how-to-run-local">How to Run (Local)&lt;/h2>
+&lt;pre tabindex="0">&lt;code>cd code
+./run.sh
+&lt;/code>&lt;/pre>&lt;p>Hit &lt;code>http://localhost:8000/api&lt;/code> and use &lt;code>curl.sh&lt;/code> or &lt;code>tests.html&lt;/code>.&lt;/p></description></item></channel></rss>

@@ -19,9 +19,9 @@ Use the navigation to explore documentation and portfolio highlights. Update the
 - Project 2: Laravel 12 + Sanctum, Eloquent models, protected routes, seeds.
 - Deployment: Docker stack, one-command scripts, curl/browser tests.
 
+**Jump to docs**
+- [Project 1 Docs](/docs/project1/)
+- [Project 2 Docs](/docs/project2/)
+
 ## Portfolio
 - Project highlights with quick summaries for both Project 1 and Project 2.
-
-## Marp Decks
-- [Project 1 Slides](/marp/project1.marp.md) — PHP/PDO dealership API.
-- [Project 2 Slides](/marp/project2.marp.md) — Laravel/Docker/Hugo with screenshots.
