@@ -26,3 +26,13 @@
 .site-footer { text-align: center; padding: 1rem; color: #475569; border-top: 1px solid #e2e8f0; }
 body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, sans-serif; background: #f8fafc; color: #1e293b; }
 article p { margin-bottom: 1rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin: 1rem 0; }
+.card { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1rem; box-shadow: 0 1px 3px rgba(15,23,42,0.08); }
+.card h3 { margin-top: 0; }
+.card h3 a { color: #0f172a; text-decoration: none; }
+.card h3 a:hover { text-decoration: underline; }
+.hero { padding: 1rem 0 0.5rem; }
+.hero .eyebrow { text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; color: #64748b; margin: 0; }
+.hero h1 { margin: 0.2rem 0; }
+.hero .lede { color: #475569; }
+.detail-card { max-width: 800px; margin: 0 auto; }
