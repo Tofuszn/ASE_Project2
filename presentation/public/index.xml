@@ -1,25 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ASE230 Project 2 on ASE230 Portfolio</title><link>https://tofuszn.github.io/ASE_Project2/</link><description>Recent content in ASE230 Project 2 on ASE230 Portfolio</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://tofuszn.github.io/ASE_Project2/index.xml" rel="self" type="application/rss+xml"/><item><title>Project 2 – Laravel, Docker, Hugo</title><link>https://tofuszn.github.io/ASE_Project2/docs/project2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://tofuszn.github.io/ASE_Project2/docs/project2/</guid><description>&lt;h2 id="goals">Goals&lt;/h2>
-&lt;ul>
-&lt;li>Re-implement Project 1 API using Laravel 12 + Sanctum&lt;/li>
-&lt;li>Use Eloquent ORM (no raw SQL)&lt;/li>
-&lt;li>Provide one-command deploy scripts and Docker stack&lt;/li>
-&lt;li>Document with Hugo and publish via GitHub Pages/Actions&lt;/li>
-&lt;/ul>
-&lt;h2 id="laravel-api-module-2">Laravel API (module 2)&lt;/h2>
-&lt;p>Endpoints:&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>POST /api/auth/login&lt;/code> → bearer token&lt;/li>
-&lt;li>&lt;code>GET /api/cars&lt;/code>, &lt;code>GET /api/cars/{id}&lt;/code>&lt;/li>
-&lt;li>&lt;code>POST /api/cars&lt;/code> (auth), &lt;code>PUT /api/cars/{id}&lt;/code> (auth), &lt;code>DELETE /api/cars/{id}&lt;/code> (auth)&lt;/li>
-&lt;li>&lt;code>GET /api/sales&lt;/code>, &lt;code>POST /api/sales&lt;/code> (auth)&lt;/li>
-&lt;/ul>
-&lt;p>Data:&lt;/p>
-&lt;ul>
-&lt;li>Models: &lt;code>User&lt;/code> (ULID IDs, Sanctum), &lt;code>Car&lt;/code>, &lt;code>Sale&lt;/code>&lt;/li>
-&lt;li>Migrations: cars, sales, users, personal access tokens&lt;/li>
-&lt;li>Seeder: admin user (&lt;code>admin&lt;/code> / &lt;code>Carlo&lt;/code>) and sample cars&lt;/li>
-&lt;/ul>
-&lt;p>Auth:&lt;/p></description></item><item><title>Projects</title><link>https://tofuszn.github.io/ASE_Project2/portfolio/projects/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://tofuszn.github.io/ASE_Project2/portfolio/projects/</guid><description>&lt;h2 id="project-1--php-dealership-api">Project 1 – PHP Dealership API&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ASE230 Project 2 on ASE230 Portfolio</title><link>https://tofuszn.github.io/ASE_Project2/</link><description>Recent content in ASE230 Project 2 on ASE230 Portfolio</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://tofuszn.github.io/ASE_Project2/index.xml" rel="self" type="application/rss+xml"/><item><title>Projects</title><link>https://tofuszn.github.io/ASE_Project2/portfolio/projects/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://tofuszn.github.io/ASE_Project2/portfolio/projects/</guid><description>&lt;h2 id="project-1--php-dealership-api">Project 1 – PHP Dealership API&lt;/h2>
 &lt;ul>
 &lt;li>Plain PHP + PDO, custom token auth.&lt;/li>
 &lt;li>Endpoints: auth, cars CRUD, sales create/list.&lt;/li>
@@ -101,4 +80,25 @@
 &lt;li>Protected requests include &lt;code>Authorization: Bearer &amp;lt;token&amp;gt;&lt;/code>&lt;/li>
 &lt;/ol>
 &lt;h3 id="authentication-example">Authentication Example&lt;/h3>
-&lt;p>Request:&lt;/p></description></item></channel></rss>
+&lt;p>Request:&lt;/p></description></item><item><title>Project 2 – Laravel, Docker, Hugo</title><link>https://tofuszn.github.io/ASE_Project2/docs/project2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://tofuszn.github.io/ASE_Project2/docs/project2/</guid><description>&lt;h2 id="goals">Goals&lt;/h2>
+&lt;ul>
+&lt;li>Re-implement Project 1 API using Laravel 12 + Sanctum&lt;/li>
+&lt;li>Use Eloquent ORM (no raw SQL)&lt;/li>
+&lt;li>Provide one-command deploy scripts and Docker stack&lt;/li>
+&lt;li>Document with Hugo and publish via GitHub Pages/Actions&lt;/li>
+&lt;/ul>
+&lt;h2 id="laravel-api-module-2">Laravel API (module 2)&lt;/h2>
+&lt;p>Endpoints:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>POST /api/auth/login&lt;/code> → bearer token&lt;/li>
+&lt;li>&lt;code>GET /api/cars&lt;/code>, &lt;code>GET /api/cars/{id}&lt;/code>&lt;/li>
+&lt;li>&lt;code>POST /api/cars&lt;/code> (auth), &lt;code>PUT /api/cars/{id}&lt;/code> (auth), &lt;code>DELETE /api/cars/{id}&lt;/code> (auth)&lt;/li>
+&lt;li>&lt;code>GET /api/sales&lt;/code>, &lt;code>POST /api/sales&lt;/code> (auth)&lt;/li>
+&lt;/ul>
+&lt;p>Data:&lt;/p>
+&lt;ul>
+&lt;li>Models: &lt;code>User&lt;/code> (ULID IDs, Sanctum), &lt;code>Car&lt;/code>, &lt;code>Sale&lt;/code>&lt;/li>
+&lt;li>Migrations: cars, sales, users, personal access tokens&lt;/li>
+&lt;li>Seeder: admin user (&lt;code>admin&lt;/code> / &lt;code>Carlo&lt;/code>) and sample cars&lt;/li>
+&lt;/ul>
+&lt;p>Auth:&lt;/p></description></item></channel></rss>

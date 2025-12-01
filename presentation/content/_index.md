@@ -21,3 +21,7 @@ Use the navigation to explore documentation and portfolio highlights. Update the
 
 ## Portfolio
 - Project highlights with quick summaries for both Project 1 and Project 2.
+
+## Marp Decks
+- [Project 1 Slides](/marp/project1.marp.md) — PHP/PDO dealership API.
+- [Project 2 Slides](/marp/project2.marp.md) — Laravel/Docker/Hugo with screenshots.

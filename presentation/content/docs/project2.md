@@ -1,7 +1,6 @@
 ---
 title: "Project 2 – Laravel, Docker, Hugo"
 weight: 20
-weight: 2
 ---
 
 ## Goals
@@ -40,6 +39,14 @@ Auth:
 
 - `code/tests/curl.sh` full flow
 - `code/tests/tests.html` prompt-based browser tester
+
+## Evidence
+
+![setup.sh success](/images/setupSS.png)
+
+![Browser tester](/images/htmlTestSS.png)
+
+![cURL flow](/images/curlTestSS.png)
 
 ## Hugo Docs & Pages (module 3)
 
