@@ -2,6 +2,8 @@ baseURL = "https://<your-github-username>.github.io/<your-repo-name>/"
 languageCode = "en-us"
 title = "ASE230 Portfolio"
 pagination.pagerSize = 10
+relativeURLs = true
+canonifyURLs = false
 
 [params]
   description = "ASE230 REST API + Docker + Hugo portfolio"

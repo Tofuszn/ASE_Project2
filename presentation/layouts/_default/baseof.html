@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{{ .Site.Title }} - {{ block "title" . }}{{ .Title }}{{ end }}</title>
-  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="{{ "css/style.css" | relURL }}" />
 </head>
 <body>
   <header class="site-header">
@@ -14,7 +14,7 @@
     </div>
     <nav>
       {{ range .Site.Menus.main }}
-        <a href="{{ .URL }}">{{ .Name }}</a>
+        <a href="{{ .URL | relURL }}">{{ .Name }}</a>
       {{ end }}
     </nav>
   </header>
