@@ -1,4 +1,4 @@
-baseURL = "https://<your-github-username>.github.io/<your-repo-name>/"
+baseURL = "https://tofuszn.github.io/ASE_Project2/"
 languageCode = "en-us"
 title = "ASE230 Portfolio"
 pagination.pagerSize = 10
