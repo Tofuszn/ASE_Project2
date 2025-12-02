@@ -3,6 +3,8 @@
 &lt;li>Plain PHP + PDO, custom token auth.&lt;/li>
 &lt;li>Endpoints: auth, cars CRUD, sales create/list.&lt;/li>
 &lt;li>Assets: &lt;code>curl.sh&lt;/code>, &lt;code>tests.html&lt;/code>, &lt;code>schema.sql&lt;/code>, &lt;code>database.php&lt;/code>.&lt;/li>
+&lt;li>Deployment: PHP built-in server for dev, NGINX for prod-style hosting.&lt;/li>
+&lt;li>Evidence: browser tester + cURL flow screenshots in docs.&lt;/li>
 &lt;/ul>
 &lt;h2 id="project-2--laravel-dealership-api">Project 2 – Laravel Dealership API&lt;/h2>
 &lt;ul>
@@ -10,17 +12,65 @@
 &lt;li>Protected routes for write operations; seeder creates admin + sample cars.&lt;/li>
 &lt;li>Scripts: &lt;code>run.sh&lt;/code> (local), &lt;code>setup.sh&lt;/code> + Docker stack.&lt;/li>
 &lt;li>Tests: &lt;code>code/tests/curl.sh&lt;/code>, &lt;code>code/tests/tests.html&lt;/code>.&lt;/li>
+&lt;li>Evidence: setup.sh success, browser tester, cURL flow (see docs).&lt;/li>
 &lt;/ul>
 &lt;h2 id="documentation--deployment">Documentation &amp;amp; Deployment&lt;/h2>
 &lt;ul>
 &lt;li>Hugo site (this site) under &lt;code>presentation/&lt;/code>.&lt;/li>
 &lt;li>GitHub Actions workflow for GitHub Pages deployment.&lt;/li>
+&lt;li>Marp slide decks for both projects under &lt;code>/marp/&lt;/code>.&lt;/li>
+&lt;li>BaseURL set to GitHub Pages: &lt;code>https://tofuszn.github.io/ASE_Project2/&lt;/code>.&lt;/li>
 &lt;/ul>
 &lt;h2 id="skills-demonstrated">Skills Demonstrated&lt;/h2>
 &lt;ul>
 &lt;li>REST API design, authentication, ORM modeling.&lt;/li>
 &lt;li>Dockerization, one-command deploy scripts.&lt;/li>
 &lt;li>Static site generation and CI/CD for docs.&lt;/li>
+&lt;li>GitHub Actions automation for Pages and reproducible builds.&lt;/li>
+&lt;/ul>
+&lt;h2 id="highlights--screens">Highlights &amp;amp; Screens&lt;/h2>
+&lt;ul>
+&lt;li>Project 2 setup success: &lt;img src="https://tofuszn.github.io/ASE_Project2/images/setupSS.png" alt="setup">&lt;/li>
+&lt;li>Browser tester output: &lt;img src="https://tofuszn.github.io/ASE_Project2/images/htmlTestSS.png" alt="html tester">&lt;/li>
+&lt;li>cURL flow output: &lt;img src="https://tofuszn.github.io/ASE_Project2/images/curlTestSS.png" alt="curl tester">&lt;/li>
+&lt;/ul>
+&lt;h2 id="deep-dive--project-1-php">Deep Dive – Project 1 (PHP)&lt;/h2>
+&lt;ul>
+&lt;li>Auth flow with random token persisted in &lt;code>staff&lt;/code> table.&lt;/li>
+&lt;li>Cars: CRUD with prepared statements; public GET, token-protected writes.&lt;/li>
+&lt;li>Sales: records sale and marks car as sold.&lt;/li>
+&lt;li>Testing: &lt;code>curl.sh&lt;/code> end-to-end + &lt;code>tests.html&lt;/code> for manual validation.&lt;/li>
+&lt;li>Deployment: MySQL via Homebrew, PHP dev server, NGINX option.&lt;/li>
+&lt;/ul>
+&lt;h2 id="deep-dive--project-2-laravel">Deep Dive – Project 2 (Laravel)&lt;/h2>
+&lt;ul>
+&lt;li>Auth: Sanctum bearer tokens; ULID users; &lt;code>auth:sanctum&lt;/code> on write routes.&lt;/li>
+&lt;li>Models: &lt;code>User&lt;/code>, &lt;code>Car&lt;/code>, &lt;code>Sale&lt;/code> with Eloquent relationships.&lt;/li>
+&lt;li>Migrations: cars, sales, users, personal_access_tokens (ULID morphs).&lt;/li>
+&lt;li>Scripts: &lt;code>run.sh&lt;/code> for local, &lt;code>setup.sh&lt;/code> for Docker (app + MySQL).&lt;/li>
+&lt;li>Tests: &lt;code>curl.sh&lt;/code> scripted flow; &lt;code>tests.html&lt;/code> manual prompts.&lt;/li>
+&lt;li>Docs: Hugo with custom layouts; Actions deploy to Pages.&lt;/li>
+&lt;/ul>
+&lt;h2 id="dev-workflow">Dev Workflow&lt;/h2>
+&lt;ul>
+&lt;li>Local: &lt;code>./run.sh&lt;/code> → migrate/seed → &lt;code>php artisan serve&lt;/code> on :8000.&lt;/li>
+&lt;li>Docker: &lt;code>./setup.sh&lt;/code> → build app+db → migrate/seed → API on :8000.&lt;/li>
+&lt;li>Verify: &lt;code>code/tests/curl.sh&lt;/code> or open &lt;code>code/tests/tests.html&lt;/code>.&lt;/li>
+&lt;li>Docs: &lt;code>cd presentation &amp;amp;&amp;amp; hugo --minify&lt;/code>; push to trigger Pages.&lt;/li>
+&lt;/ul>
+&lt;h2 id="links-quick-access">Links (quick access)&lt;/h2>
+&lt;ul>
+&lt;li>Project 1 docs: &lt;code>/docs/project1/&lt;/code>&lt;/li>
+&lt;li>Project 2 docs: &lt;code>/docs/project2/&lt;/code>&lt;/li>
+&lt;li>Marp slides: &lt;code>/marp/project1.marp.md&lt;/code>, &lt;code>/marp/project2.marp.md&lt;/code>&lt;/li>
+&lt;li>Portfolio (this page): &lt;code>/portfolio/&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="future-enhancements">Future Enhancements&lt;/h2>
+&lt;ul>
+&lt;li>Add pagination/filters to &lt;code>/api/cars&lt;/code>.&lt;/li>
+&lt;li>Add OpenAPI/Swagger spec.&lt;/li>
+&lt;li>Add PHPUnit coverage for controllers and CI test runs.&lt;/li>
+&lt;li>Expand portfolio with more screenshots and live demo links.&lt;/li>
 &lt;/ul></description></item><item><title>Project 2 – Laravel, Docker, Hugo</title><link>https://tofuszn.github.io/ASE_Project2/docs/project2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://tofuszn.github.io/ASE_Project2/docs/project2/</guid><description>&lt;h1 id="ase230-project-2--laravel-rest-api--docker--hugo">ASE230 Project 2 – Laravel REST API + Docker + Hugo&lt;/h1>
 &lt;h2 id="overview">Overview&lt;/h2>
 &lt;ul>
