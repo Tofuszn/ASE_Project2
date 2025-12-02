@@ -138,7 +138,29 @@
 &lt;h2 id="how-to-run-local">How to Run (Local)&lt;/h2>
 &lt;pre tabindex="0">&lt;code>cd code
 ./run.sh
-&lt;/code>&lt;/pre>&lt;p>Hit &lt;code>http://localhost:8000/api&lt;/code> and use &lt;code>curl.sh&lt;/code> or &lt;code>tests.html&lt;/code>.&lt;/p></description></item><item><title>ASE230 Project 1 – Dealership API</title><link>https://tofuszn.github.io/ASE_Project2/docs/project1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://tofuszn.github.io/ASE_Project2/docs/project1/</guid><description>&lt;h1 id="ase230-project-1">ASE230 Project 1&lt;/h1>
+&lt;/code>&lt;/pre>&lt;p>Hit &lt;code>http://localhost:8000/api&lt;/code> and use &lt;code>curl.sh&lt;/code> or &lt;code>tests.html&lt;/code>.&lt;/p></description></item><item><title>FAQ &amp; Notes</title><link>https://tofuszn.github.io/ASE_Project2/docs/faq/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://tofuszn.github.io/ASE_Project2/docs/faq/</guid><description>&lt;h2 id="common-questions">Common Questions&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>Where is the API?&lt;/strong> &lt;code>http://localhost:8000/api&lt;/code> (or container port 8000).&lt;/li>
+&lt;li>&lt;strong>Credentials?&lt;/strong> &lt;code>admin&lt;/code> / &lt;code>Carlo&lt;/code> (seeded).&lt;/li>
+&lt;li>&lt;strong>How to run locally?&lt;/strong> &lt;code>cd code &amp;amp;&amp;amp; ./run.sh&lt;/code> (ensure MySQL is reachable).&lt;/li>
+&lt;li>&lt;strong>How to run with Docker?&lt;/strong> &lt;code>cd code &amp;amp;&amp;amp; ./setup.sh&lt;/code> (builds app+db, migrates/seeds).&lt;/li>
+&lt;li>&lt;strong>Tests?&lt;/strong> &lt;code>code/tests/curl.sh&lt;/code> for end-to-end; &lt;code>code/tests/tests.html&lt;/code> for manual.&lt;/li>
+&lt;li>&lt;strong>Docs site?&lt;/strong> Hugo at &lt;code>https://tofuszn.github.io/ASE_Project2/&lt;/code>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="troubleshooting">Troubleshooting&lt;/h2>
+&lt;ul>
+&lt;li>Sanctum token insert errors → ensure &lt;code>personal_access_tokens&lt;/code> uses &lt;code>ulidMorphs&lt;/code>.&lt;/li>
+&lt;li>DB connection errors → confirm MySQL is running and &lt;code>.env&lt;/code> matches host/port.&lt;/li>
+&lt;li>Pages links broken → verify &lt;code>baseURL&lt;/code> in &lt;code>presentation/config.toml&lt;/code> and rerun workflow.&lt;/li>
+&lt;li>Docker build PHP version mismatch → Dockerfile uses PHP 8.4 to match composer.lock.&lt;/li>
+&lt;/ul>
+&lt;h2 id="deliverables-recap">Deliverables Recap&lt;/h2>
+&lt;ul>
+&lt;li>Laravel API (Project 2) with Sanctum.&lt;/li>
+&lt;li>Docker stack + one-command scripts.&lt;/li>
+&lt;li>Hugo docs (Project 1 + Project 2) with portfolio and screenshots.&lt;/li>
+&lt;li>GitHub Actions → GitHub Pages deployment.&lt;/li>
+&lt;/ul></description></item><item><title>ASE230 Project 1 – Dealership API</title><link>https://tofuszn.github.io/ASE_Project2/docs/project1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://tofuszn.github.io/ASE_Project2/docs/project1/</guid><description>&lt;h1 id="ase230-project-1">ASE230 Project 1&lt;/h1>
 &lt;h2 id="dealership-rest-api-overview">Dealership REST API Overview&lt;/h2>
 &lt;ul>
 &lt;li>Carlo Calipo&lt;/li>

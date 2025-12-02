@@ -45,11 +45,56 @@ Carlo Calipo
 
 ---
 
+# Seeder & Credentials
+- Admin user: `admin` / `Carlo`
+- Sample cars: Supra, Mustang (available)
+- Idempotent seeding prevents duplicate admin
+- ULID morphs on tokens to avoid truncation
+
+---
+
+# Setup – Local
+```
+cd code
+./run.sh
+```
+- composer install
+- `php artisan key:generate`
+- `php artisan migrate --seed`
+- Serves `http://localhost:8000/api`
+
+---
+
+# Evidence – run.sh (local stack)
+![w:780](../images/runTestSS.png)
+
+---
+
+# Setup – Docker
+```
+cd code
+./setup.sh
+```
+- Builds PHP 8.4 image
+- Starts MySQL + app containers
+- Runs migrate --seed
+- API at `http://localhost:8000/api`
+
+---
+
 # Auth Flow (Sanctum)
 1. `POST /api/auth/login` with username/password
 2. Verify password hash
 3. Issue Sanctum token
 4. Bearer token required for POST/PUT/DELETE
+
+---
+
+# Validation & Responses
+- Laravel validation on create/update
+- JSON-only responses
+- Status codes: 200/201/400/401/403/404
+- Deletes return `{deleted: true}`; 404 on refetch
 
 ---
 
@@ -96,6 +141,13 @@ Carlo Calipo
 
 ---
 
+# Portfolio
+- `/portfolio/` highlights Projects 1 and 2
+- Includes screenshots and links to docs and Marp decks
+- Live on GitHub Pages
+
+---
+
 # Testing Strategy
 - `curl.sh` covers login, CRUD cars, sale, delete
 - `tests.html` for manual browser validation
@@ -103,10 +155,19 @@ Carlo Calipo
 
 ---
 
+# Troubleshooting
+- Token insert errors → ensure ULID morph on tokens
+- DB connection issues → verify `.env` host/port and MySQL up
+- Pages links broken → check `baseURL` and rerun workflow
+- Composer/PHP mismatch → Dockerfile set to PHP 8.4
+
+---
+
 # Lessons Learned
-- ULID IDs and Sanctum tokens required tokenable morph changes
-- Docker PHP version must match composer lock (8.4)
-- Relative vs. canonical URLs for Pages subpath
+- ULID + Sanctum needs `ulidMorphs`
+- PHP version must match composer.lock
+- Canonical URLs required for GitHub Pages subpath
+- Idempotent seeds prevent duplicate admin errors
 
 ---
 
@@ -114,3 +175,4 @@ Carlo Calipo
 - Add pagination/filters to cars
 - Add CI tests (PHPUnit) for controllers
 - Add swagger/OpenAPI docs
+- Publish OpenAPI and run tests in Actions
