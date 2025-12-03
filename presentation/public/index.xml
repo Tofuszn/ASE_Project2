@@ -30,10 +30,26 @@
 &lt;/ul>
 &lt;h2 id="highlights--screens">Highlights &amp;amp; Screens&lt;/h2>
 &lt;ul>
-&lt;li>Project 2 setup success: &lt;img src="../../images/setupSS.png" alt="setup">&lt;/li>
-&lt;li>Browser tester output: &lt;img src="../../images/htmlTestSS.png" alt="html tester">&lt;/li>
-&lt;li>cURL flow output: &lt;img src="../../images/curlTestSS.png" alt="curl tester">&lt;/li>
-&lt;li>Local run script (run.sh): &lt;img src="../../images/runTestSS.png" alt="run script">&lt;/li>
+&lt;li>Project 2 setup success&lt;br>
+&lt;figure>&lt;img src="https://tofuszn.github.io/ASE_Project2/images/setupSS.png"
+ alt="setup">
+&lt;/figure>
+&lt;/li>
+&lt;li>Browser tester output&lt;br>
+&lt;figure>&lt;img src="https://tofuszn.github.io/ASE_Project2/images/htmlTestSS.png"
+ alt="html tester">
+&lt;/figure>
+&lt;/li>
+&lt;li>cURL flow output&lt;br>
+&lt;figure>&lt;img src="https://tofuszn.github.io/ASE_Project2/images/curlTestSS.png"
+ alt="curl tester">
+&lt;/figure>
+&lt;/li>
+&lt;li>Local run script (run.sh)&lt;br>
+&lt;figure>&lt;img src="https://tofuszn.github.io/ASE_Project2/images/runTestSS.png"
+ alt="run script">
+&lt;/figure>
+&lt;/li>
 &lt;/ul>
 &lt;h2 id="deep-dive--project-1-php">Deep Dive – Project 1 (PHP)&lt;/h2>
 &lt;ul>
