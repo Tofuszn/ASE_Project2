@@ -20,8 +20,8 @@ Total Points: 200
 [x] I understand the policy & Rule.
 [x] I uploaded all my project results (module2) to GitHub.
 [x] I uploaded all my project document (module3) to GitHub.io.
-[ ] I zipped all of my project results (module2) in the submission.
-[ ] I zipped all of my project document (module3) in the submission.
+[x] I zipped all of my project results (module2) in the submission.
+[x] I zipped all of my project document (module3) in the submission.
 
 ---
 
@@ -29,9 +29,9 @@ Total Points: 200
 
 - Your ASE230 Project GitHub Repository: https://github.com/Tofuszn/ASE_Project2
   - GitHub Link to your code (module 2): https://github.com/Tofuszn/ASE_Project2/tree/main/code
-  - The Zip file name: ASE_Project2_code.zip and size: ____ (fill after zipping)
+  - The Zip file name: ASE_Project2_code.zip and size: __28.5MB__ 
   - GitHub.io Link (module 3): https://tofuszn.github.io/ASE_Project2/
-  - The Zip file name: ASE_Project2_presentation.zip and size: ____ (fill after zipping)
+  - The Zip file name: ASE_Project2_presentation.zip and size: __7.5MB__ 
 
 ---
 
@@ -61,17 +61,17 @@ A: Yes, the code directory should contain the Laravel code and scripts (module 2
     - `GET /api/sales`
     - `POST /api/sales` (auth)
 
-  - [T/F] Uses Laravel routing and controllers properly
+  - [T] Uses Laravel routing and controllers properly
 - [15/15] Used **Eloquent ORM** for database operations (no raw SQL queries)
   - List your Eloquent models:
     - `User` (ULID, HasApiTokens)
     - `Car`
     - `Sale`
-  - [T/F] Proper model relationships implemented
+  - [T] Proper model relationships implemented
 - [10/10] Implemented authentication using **Laravel Sanctum** or similar
   - Authentication method used: 
     - Laravel Sanctum bearer tokens
-  - [T/F] Bearer token authentication working
+  - [T] Bearer token authentication working
 
 ---
 
@@ -101,11 +101,11 @@ The professor will regrade to add or subtract points.
 
 - [15/15] Understand **existing shell script examples** from course materials as reference
   - Reference materials used: course shell script examples (adapted to Laravel)
-  - [T/F] Properly adapted existing scripts for Laravel
+  - [T] Properly adapted existing scripts for Laravel
 - [15/15] Created **automated deployment script** (`run.sh`) for one-command Laravel deployment
   - Script file name: 
     - `run.sh`
-  - [T/F] Script successfully deploys Laravel application
+  - [T] Script successfully deploys Laravel application
 - [10/10] Created a screen capture to show the script can start the Laravel REST API project
   - GitHub Link or Filename of the screen capture: 
     - `/images/setupSS.png` (run/setup evidence)
@@ -138,17 +138,17 @@ A: You should prove that your code (or script) works by screen capture your outp
   - Docker files created:
     - `Dockerfile`
     - `docker-compose.yml`
-- [T/F] Dockerfile properly configured for Laravel
+- [T] Dockerfile properly configured for Laravel
 - [15/15] Created **setup script** (`setup.sh`) for one-command Docker deployment
 
 - Setup script file name: 
   - `setup.sh`
-- [T/F] Script successfully builds and runs Docker containers
+- [T] Script successfully builds and runs Docker containers
 - [10/10] Created a screen capture to show the script can setup and run Docker
 
 - GitHub Link or Filename of the screen capture: 
   - `/images/setupSS.png`
-- [T/F] Screen capture included
+- [T] Screen capture included
 
 ---
 
@@ -169,14 +169,14 @@ A: You should prove that your code (or script) works by screen capture your outp
 - [15/15] **Re-implemented Project 1 documentation** using Hugo (transformed from Marp)
   - Hugo site structure created: 
     - `presentation/` content/layouts/static
-  - [T/F] Successfully converted Marp to Hugo markdown
+  - [T] Successfully converted Marp to Hugo markdown
 - [15/15] **Added portfolio pages** to Hugo site
   - Portfolio pages added: `/portfolio/` with projects, screenshots, links
-  - [T/F] Portfolio showcases ASE230 projects effectively
+  - [T] Portfolio showcases ASE230 projects effectively
 - [10/10] Created a screen capture to show you can use Hugo to build web site for your portfolio
   - GitHub Link or Filename of the screen capture: 
     - `/images/htmlTestSS.png`
-  - [T/F] Screen capture included
+  - [T] Screen capture included
 
 ---
 
@@ -206,13 +206,13 @@ A2: As a starter, you can add your ASE230 projects (PHP/Laravel REST API impleme
 
 - [15/15] **Published documentation to GitHub.io** using GitHub Actions
   - GitHub.io site URL: https://tofuszn.github.io/ASE_Project2/
-  - [T/F] Site is publicly accessible and functional
+  - [T] Site is publicly accessible and functional
 - [15/15] **Uploaded complete source to GitHub** for automatic transformation
   - GitHub repository URL: https://github.com/Tofuszn/ASE_Project2
-  - [T/F] GitHub Actions successfully builds and deploys
+  - [T] GitHub Actions successfully builds and deploys
 - [10/10] Created a screen capture to show you can run GitHub.io to deploy Hugo project
   - GitHub Link or Filename of the screen capture: `/images/htmlTestSS.png`
-  - [T/F] Screen capture included
+  - [T] Screen capture included
 
 ---
 
@@ -243,9 +243,9 @@ Professor will regrade to add or subtract points.
 - [x] I understand that I may deduct points if the results are of poor quality.
 - [x] I understand that I may be reported as plagiarism if I used other work (including AI) without proper reference.
 - [x] Pushed to GitHub
-- [ ] Zipped the code/document.
-- [ ] Checked there is no .git directory or any hidden directories included from the zipped file size (______). <- write the file sizes
-- [ ] Copy zipped files in correct directory: `code/`, `presentation/`, `plan/`  
+- [x] Zipped the code/document.
+- [x] Checked there is no .git directory or any hidden directories included from the zipped file size (__28.5MB, 7.5MB, __993B__). <- write the file sizes
+- [x] Copy zipped files in correct directory: `code/`, `presentation/`, `plan/`  
 - [x] Project ready for **professional portfolio showcase**  
 - [x] Hugo site deployed to GitHub.io and accessible  
 
