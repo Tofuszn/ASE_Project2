@@ -68,11 +68,13 @@ weight: 20
 - `code/tests/tests.html` — prompt-based browser harness for manual checks.
 
 ## Evidence (Screenshots)
-{{< figure src="/images/setupSS.png" alt="setup.sh success" >}}
+![setup.sh success](../../images/setupSS.png)
 
-{{< figure src="/images/htmlTestSS.png" alt="Browser tester output" >}}
+![Browser tester output](../../images/htmlTestSS.png)
 
-{{< figure src="/images/curlTestSS.png" alt="cURL flow output" >}}
+![cURL flow output](../../images/curlTestSS.png)
+
+![run.sh local stack](../../images/runTestSS.png)
 
 ## Configuration Notes
 - `.env` set for MySQL host `db` (Docker) or `127.0.0.1` locally.
