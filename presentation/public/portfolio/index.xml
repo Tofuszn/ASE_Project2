@@ -28,29 +28,6 @@
 &lt;li>Static site generation and CI/CD for docs.&lt;/li>
 &lt;li>GitHub Actions automation for Pages and reproducible builds.&lt;/li>
 &lt;/ul>
-&lt;h2 id="highlights--screens">Highlights &amp;amp; Screens&lt;/h2>
-&lt;ul>
-&lt;li>Project 2 setup success&lt;br>
-&lt;figure>&lt;img src="https://tofuszn.github.io/ASE_Project2/images/setupSS.png"
- alt="setup">
-&lt;/figure>
-&lt;/li>
-&lt;li>Browser tester output&lt;br>
-&lt;figure>&lt;img src="https://tofuszn.github.io/ASE_Project2/images/htmlTestSS.png"
- alt="html tester">
-&lt;/figure>
-&lt;/li>
-&lt;li>cURL flow output&lt;br>
-&lt;figure>&lt;img src="https://tofuszn.github.io/ASE_Project2/images/curlTestSS.png"
- alt="curl tester">
-&lt;/figure>
-&lt;/li>
-&lt;li>Local run script (run.sh)&lt;br>
-&lt;figure>&lt;img src="https://tofuszn.github.io/ASE_Project2/images/runTestSS.png"
- alt="run script">
-&lt;/figure>
-&lt;/li>
-&lt;/ul>
 &lt;h2 id="deep-dive--project-1-php">Deep Dive – Project 1 (PHP)&lt;/h2>
 &lt;ul>
 &lt;li>Auth flow with random token persisted in &lt;code>staff&lt;/code> table.&lt;/li>

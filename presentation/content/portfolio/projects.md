@@ -29,12 +29,6 @@ weight: 4
 - Static site generation and CI/CD for docs.
 - GitHub Actions automation for Pages and reproducible builds.
 
-## Highlights & Screens
-- Project 2        setup success: ![setup](../../images/setupSS.png)
-- Browser tester output: ![html tester](../../images/htmlTestSS.png)
-- cURL flow output: ![curl tester](../../images/curlTestSS.png)
-- Local run script (run.sh): ![run script](../../images/runTestSS.png)
-
 ## Deep Dive – Project 1 (PHP)
 - Auth flow with random token persisted in `staff` table.
 - Cars: CRUD with prepared statements; public GET, token-protected writes.
