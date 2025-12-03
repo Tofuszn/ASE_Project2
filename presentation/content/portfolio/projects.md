@@ -30,7 +30,7 @@ weight: 4
 - GitHub Actions automation for Pages and reproducible builds.
 
 ## Highlights & Screens
-- Project 2 setup success: ![setup](../../images/setupSS.png)
+- Project 2        setup success: ![setup](../../images/setupSS.png)
 - Browser tester output: ![html tester](../../images/htmlTestSS.png)
 - cURL flow output: ![curl tester](../../images/curlTestSS.png)
 - Local run script (run.sh): ![run script](../../images/runTestSS.png)
