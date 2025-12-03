@@ -342,8 +342,3 @@ server {
 - Add customer management and advanced search filters
 - Build a front-end dashboard consuming this API
 - Automate scheduled database backups
-
----
-
-# Thank You
-

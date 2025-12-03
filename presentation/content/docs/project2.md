@@ -152,10 +152,5 @@ App on `http://localhost:8000/api`. Credentials: `admin` / `Carlo`.
 - Scripts: `run.sh`, `setup.sh`
 - Tests: `code/tests/curl.sh`, `code/tests/tests.html`
 
-## Quick FAQ
-- **Why ULID?** Stable, sortable identifiers; needed ULID morph for Sanctum.
-- **Why PHP 8.4 in Docker?** Composer lock pinned Symfony 8 packages requiring 8.4.
-- **DB errors on tokenable_id?** Use `ulidMorphs` in Sanctum tokens migration.
-
 ## Summary
 Project 2 delivers a Laravel-based dealership API with Sanctum auth, Dockerized deployment, one-command scripts, comprehensive tests, and a Hugo site published via GitHub Pages, fully re-implementing Project 1 with modern tooling and CI/CD.
