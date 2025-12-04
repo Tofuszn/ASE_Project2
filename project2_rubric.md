@@ -31,7 +31,7 @@ Total Points: 200
   - GitHub Link to your code (module 2): https://github.com/Tofuszn/ASE_Project2/tree/main/code
   - The Zip file name: ASE_Project2_code.zip and size: __28.5MB__ 
   - GitHub.io Link (module 3): https://tofuszn.github.io/ASE_Project2/
-  - The Zip file name: ASE_Project2_presentation.zip and size: __7.5MB__ 
+  - The Zip file name: ASE_Project2_presentation.zip and size: __9.8MB__ 
 
 ---
 
@@ -244,7 +244,7 @@ Professor will regrade to add or subtract points.
 - [x] I understand that I may be reported as plagiarism if I used other work (including AI) without proper reference.
 - [x] Pushed to GitHub
 - [x] Zipped the code/document.
-- [x] Checked there is no .git directory or any hidden directories included from the zipped file size (__28.5MB, 7.5MB, __993B__). <- write the file sizes
+- [x] Checked there is no .git directory or any hidden directories included from the zipped file size (__28.5MB, 9.8MB, __993B__). <- write the file sizes
 - [x] Copy zipped files in correct directory: `code/`, `presentation/`, `plan/`  
 - [x] Project ready for **professional portfolio showcase**  
 - [x] Hugo site deployed to GitHub.io and accessible  

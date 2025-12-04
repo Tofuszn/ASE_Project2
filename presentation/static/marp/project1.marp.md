@@ -246,7 +246,7 @@ Response `201 Created`:
 - Performs login, car CRUD cycle, and sale creation using dynamic IDs
 - Uses `jq` for structured output and halts on failure
 
-![Terminal output from bash code/curl.sh](../images/project1_curltest.png)
+![Terminal output from bash code/curl.sh](../../images/project1_curltest.png)
 
 ---
 
@@ -255,7 +255,7 @@ Response `201 Created`:
 - Provides buttons for login, list/create/update/delete car, and create sale
 - Displays JSON responses and refreshes listings after each action
 
-![Screenshot of code/tests.html after CRUD workflow](../images/project1_testhtml.png)
+![Screenshot of code/tests.html after CRUD workflow](../../images/project1_testhtml.png)
 
 ---
 
@@ -314,7 +314,7 @@ server {
 ---
 
 # NGINX Evidence
-![Screenshot of NGINX status](../images/project1_nginx-status.png)
+![Screenshot of NGINX status](../../images/project1_nginx-status.png)
 - Demonstrates active service for grading requirements
 
 ---
